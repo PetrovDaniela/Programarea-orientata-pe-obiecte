@@ -1,0 +1,18 @@
+#include &lt;iostream&gt;
+#include &lt;cstring&gt;
+
+const char* nume_luna(int luna) {
+const char* luni[] = {&quot;ianuarie&quot;, &quot;februarie&quot;, &quot;martie&quot;, &quot;aprilie&quot;, &quot;mai&quot;, &quot;iunie&quot;, &quot;iulie&quot;, &quot;august&quot;, &quot;septembrie&quot;,
+&quot;octombrie&quot;, &quot;noiembrie&quot;, &quot;decembrie&quot;};
+return luni[luna - 1];
+}
+
+int main() {
+int zz, ll, aaaa;
+
+std::cout &lt;&lt; &quot;Introduceți data în formatul zz ll aaaa (de ex. 10 10 2010): &quot;;
+std::cin &gt;&gt; zz &gt;&gt; ll &gt;&gt; aaaa;
+std::cout &lt;&lt; zz &lt;&lt; &#39; &#39; &lt;&lt; nume_luna(ll) &lt;&lt; &#39; &#39; &lt;&lt; aaaa &lt;&lt; std::endl;
+
+return 0;
+}
