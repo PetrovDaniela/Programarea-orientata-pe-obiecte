@@ -1,0 +1,44 @@
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+
+using namespace std;
+
+class Ecuatie {
+double a, b, c;
+public:
+void citire() {
+cout &lt;&lt; &quot;Introduceti coeficientii ecuatiei (a b c): &quot;;
+cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+}
+void afisare() {
+cout &lt;&lt; &quot;Ecuatia este: &quot; &lt;&lt; a &lt;&lt; &quot;x^2 + &quot; &lt;&lt; b &lt;&lt; &quot;x + &quot; &lt;&lt; c &lt;&lt; &quot; = 0&quot; &lt;&lt; endl;
+}
+void rezolvare() {
+if (a == 0) {
+if (b == 0) {
+cout &lt;&lt; &quot;Ecuatia nu are solutie&quot; &lt;&lt; endl;
+} else {
+cout &lt;&lt; &quot;Ecuatia are solutia x = &quot; &lt;&lt; -c / b &lt;&lt; endl;
+}
+} else {
+double delta = b * b - 4 * a * c;
+if (delta &lt; 0) {
+cout &lt;&lt; &quot;Ecuatia nu are solutii reale&quot; &lt;&lt; endl;
+} else if (delta == 0) {
+cout &lt;&lt; &quot;Ecuatia are solutia dubla x = &quot; &lt;&lt; -b / (2 * a) &lt;&lt; endl;
+} else {
+
+cout &lt;&lt; &quot;Ecuatia are solutiile x1 = &quot; &lt;&lt; (-b + sqrt(delta)) / (2 * a) &lt;&lt; &quot; si x2 = &quot; &lt;&lt; (-b - sqrt(delta)) / (2 *
+a) &lt;&lt; endl;
+}
+}
+}
+};
+
+int main() {
+Ecuatie e;
+e.citire();
+e.afisare();
+e.rezolvare();
+return 0;
+}
