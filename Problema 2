@@ -1,0 +1,44 @@
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+
+using namespace std;
+
+class Calculator {
+private:
+double a, b, d;
+
+public:
+Calculator(double a, double b) : a(a), b(b), {}
+
+double functie(double x) {
+return x - sin(x + 1);
+}
+
+double gasesteRadacina() {
+double c;
+while (b - a &gt;= 1e-8) {
+c = (a + b) / 2;
+if (functie(c) == 0) {
+return c;
+}
+if (functie(a) * functie(c) &lt; 0) {
+b = c;
+} else {
+a = c;
+}
+}
+d = (a + b) / 2;
+}
+};
+
+int main() {
+double a = 0.5;
+double b = 1.0;
+
+Calculator calculator(a, b);
+double radacina = calculator.gasesteRadacina();
+
+cout&lt;&lt; &quot;Radacina ecuatiei x - sin(x + 1) = 0 in intervalul [0.5, 1] este: &quot; &lt;&lt; radacina &lt;&lt;endl;
+
+return 0;
+}
