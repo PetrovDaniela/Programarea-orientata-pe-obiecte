@@ -1,0 +1,54 @@
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+
+class Note {
+public:
+Note() : note{0.0, 0.0, 0.0, 0.0, 0.0} {
+std::cout &lt;&lt; &quot;Constructorul clasei Note a fost apelat.&quot; &lt;&lt; std::endl;
+}
+~Note() {
+std::cout &lt;&lt; &quot;Destructorul clasei Note a fost apelat.&quot; &lt;&lt; std::endl;
+}
+
+private:
+std::vector&lt;double&gt; note;
+};
+
+class Grupa : public Note {
+public:
+Grupa(int nr_grupa) : nr_grupa(nr_grupa) {
+std::cout &lt;&lt; &quot;Constructorul clasei Grupa a fost apelat.&quot; &lt;&lt; std::endl;
+}
+~Grupa() {
+std::cout &lt;&lt; &quot;Destructorul clasei Grupa a fost apelat.&quot; &lt;&lt; std::endl;
+}
+void afiseazaInformatii(const std::string&amp; nume, const std::string&amp; prenume, int varsta, const std::string&amp;
+data_nastere) {
+std::cout &lt;&lt; &quot;Nr. Grupa: &quot; &lt;&lt; nr_grupa &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Nume: &quot; &lt;&lt; nume &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Prenume: &quot; &lt;&lt; prenume &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Varsta: &quot; &lt;&lt; varsta &lt;&lt; &quot; ani&quot; &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Data nasterii: &quot; &lt;&lt; data_nastere &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Media notelor: Calcularea mediei aici...&quot; &lt;&lt; std::endl;
+std::cout &lt;&lt; std::endl;
+}
+
+private:
+int nr_grupa;
+};
+
+int main() {
+Grupa grupa1(1);
+Grupa grupa2(2);
+Grupa grupa3(1);
+Grupa grupa4(4);
+Grupa grupa5(3);
+grupa1.afiseazaInformatii(&quot;Popescu&quot;, &quot;Ion&quot;, 20, &quot;25/01/2003&quot;);
+grupa2.afiseazaInformatii(&quot;Ionescu&quot;, &quot;Maria&quot;, 23, &quot;13/12/2000&quot;);
+
+grupa3.afiseazaInformatii(&quot;Georgescu&quot;, &quot;Andrei&quot;, 25, &quot;03/07/1998&quot;);
+grupa4.afiseazaInformatii(&quot;Radulescu&quot;, &quot;Elena&quot;, 21, &quot;17/04/2002&quot;);
+grupa5.afiseazaInformatii(&quot;Dumitrescu&quot;, &quot;Vlad&quot;, 19, &quot;25/09/2004&quot;);
+return 0;
+}
