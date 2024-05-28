@@ -1,0 +1,40 @@
+#include &lt<iostream&gt>
+#include &lt<string&gt>
+
+class Grupa {
+private:
+std::string nume;
+std::string prenume;
+int note[5];
+double media;
+public:
+Grupa(const std::string&amp; nume, const std::string&amp; prenume) {
+this-&gt;nume = nume;
+this-&gt;prenume = prenume;
+
+for (int i = 1; i &lt;= 5; i++) {
+std::cout &lt;&lt; &quot;Introduceti nota pentru examenul &quot; &lt;&lt; i &lt;&lt; &quot;: &quot;;
+std::cin &gt;&gt; note[i];
+}
+media = 0;
+for (int i = 0; i &lt; 5; i++) {
+media += note[i];
+}
+media /= 5;
+}
+
+void afiseazaGrupa() {
+std::cout &lt;&lt; &quot;Nume: &quot; &lt;&lt; nume &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Prenume: &quot; &lt;&lt; prenume &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Medie note: &quot; &lt;&lt; media &lt;&lt; std::endl;
+}
+};
+
+int main() {
+std::string nume = &quot;Matei&quot;;
+std::string prenume = &quot;Andrei&quot;;
+Grupa student(nume, prenume);
+student.afiseazaGrupa();
+
+return 0;
+}
