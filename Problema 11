@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cmath>
+
+class Punct {
+private:
+double x, y;
+
+public:
+Punct(double xVal, double yVal) : x(xVal), y(yVal) {}
+void afiseazaCoordonatele() const {
+std::cout &lt;&lt; &quot;Coordonatele punctului: (&quot; &lt;&lt; x &lt;&lt; &quot;, &quot; &lt;&lt; y &lt;&lt; &quot;)\n&quot;;
+}
+friend class Triunghi;
+};
+
+class Triunghi {
+private:
+Punct v1, v2, v3;
+
+public:
+Triunghi(const Punct&amp; v1, const Punct&amp; v2, const Punct&amp; v3) : v1(v1), v2(v2), v3(v3) {}
+
+void afiseazaVarfurile() const {
+std::cout &lt;&lt; &quot;Varfurile triunghiului:\n&quot;;
+v1.afiseazaCoordonatele();
+v2.afiseazaCoordonatele();
+v3.afiseazaCoordonatele();
+}
+
+std::string determinaTipulTriunghiului() const {
+double latura1 = distantaPuncte(v1, v2);
+double latura2 = distantaPuncte(v2, v3);
+double latura3 = distantaPuncte(v3, v1);
+
+if (latura1 == latura2 &amp;&amp; latura2 == latura3) {
+return &quot;Triunghi echilateral&quot;;
+} else if (latura1 == latura2 || latura2 == latura3 || latura3 == latura1) {
+return &quot;Triunghi isoscel&quot;;
+
+} else {
+return &quot;Triunghi oarecare&quot;;
+}
+}
+
+private:
+double distantaPuncte(const Punct&amp; p1, const Punct&amp; p2) const {
+return std::sqrt(std::pow(p2.x - p1.x, 2) + std::pow(p2.y - p1.y, 2));
+}
+};
+
+int main() {
+Punct v1(0, 0), v2(1, 0), v3(0, 1);
+Triunghi triunghi(v1, v2, v3);
+
+triunghi.afiseazaVarfurile();
+std::cout &lt;&lt; &quot;Tipul triunghiului: &quot; &lt;&lt; triunghi.determinaTipulTriunghiului() &lt;&lt; std::endl;
+
+return 0;
+}
