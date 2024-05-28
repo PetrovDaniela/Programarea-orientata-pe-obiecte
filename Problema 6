@@ -1,0 +1,52 @@
+#include &lt<iostream&gt>
+#include &lt<string&gt>
+
+class Masina {
+private:
+std::string tip;
+std::string culoare;
+double pret;
+public:
+Masina(const std::string&amp; tip, const std::string&amp; culoare, double pret) {
+this-&gt;tip = tip;
+this-&gt;culoare = culoare;
+this-&gt;pret = pret;
+}
+~Masina() {
+}
+void afiseazaMasina() {
+std::cout &lt;&lt; &quot;Tip masina: &quot; &lt;&lt; tip &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Culoare: &quot; &lt;&lt; culoare &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Pret: &quot; &lt;&lt; pret &lt;&lt; &quot; euro&quot; &lt;&lt; std::endl;
+}
+};
+
+class Sofer {
+private:
+std::string nume;
+std::string prenume;
+int varsta;
+Masina masina;
+public:
+Sofer(const std::string&amp; nume, const std::string&amp; prenume, int varsta, const Masina&amp; masina) : masina(masina)
+{
+this-&gt;nume = nume;
+this-&gt;prenume = prenume;
+this-&gt;varsta = varsta;
+}
+~Sofer() {
+}
+void afiseazaSofer() {
+std::cout &lt;&lt; &quot;Nume: &quot; &lt;&lt; nume &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Prenume: &quot; &lt;&lt; prenume &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Varsta: &quot; &lt;&lt; varsta &lt;&lt; &quot; ani&quot; &lt;&lt; std::endl;
+masina.afiseazaMasina();
+}
+};
+
+int main() {
+Masina masina1(&quot;Sedan&quot;, &quot;Rosu&quot;, 7000.0);
+Sofer sofer1(&quot;Vasile&quot;, &quot;Popescu&quot;, 30, masina1);
+sofer1.afiseazaSofer();
+return 0;
+}
