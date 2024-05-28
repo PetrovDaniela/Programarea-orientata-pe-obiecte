@@ -1,0 +1,26 @@
+#include <iostream&gt>
+
+class Data_de_nastere {
+public:
+// Constructorul clasei
+Data_de_nastere(int an, int luna, int ziua) : an(an), luna(luna), ziua(ziua) {}
+
+// Metoda pentru a afișa data
+void arata_data() {
+std::cout &lt;&lt; &quot;Data de nastere: &quot; &lt;&lt; ziua &lt;&lt; &quot;/&quot; &lt;&lt; luna &lt;&lt; &quot;/&quot; &lt;&lt; an &lt;&lt; std::endl;
+}
+
+private:
+// Membrii privați ai clasei
+int an;
+int luna;
+int ziua;
+};
+
+int main() {
+// Exemplu de utilizare a clasei
+Data_de_nastere data(1990, 5, 15);
+data.arata_data();
+
+return 0;
+}
