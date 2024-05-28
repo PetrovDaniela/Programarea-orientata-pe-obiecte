@@ -1,0 +1,16 @@
+class Student:
+
+def _init_(self, nume, prenume, varsta):
+self.nume = nume
+self.prenume = prenume
+self.varsta = varsta
+
+# Creare de instanțe ale clasei Student
+student1 = Student(&quot;Popescu&quot;, &quot;Ion&quot;, 20)
+student2 = Student(&quot;Ionescu&quot;, &quot;Maria&quot;, 22)
+student3 = Student(&quot;Radu&quot;, &quot;Alex&quot;, 21)
+
+# Afișare date pentru cei trei studenți
+printf(&quot;Student 1: {student1.nume} {student1.prenume}, Varsta: {student1.varsta} ani&quot;)
+printf(&quot;Student 2: {student2.nume} {student2.prenume}, Varsta: {student2.varsta} ani&quot;)
+printf(&quot;Student 3: {student3.nume} {student3.prenume}, Varsta: {student3.varsta} ani&quot;)
