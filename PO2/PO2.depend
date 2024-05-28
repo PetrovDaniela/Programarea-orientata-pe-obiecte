@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1696932425 source:d:\programe\po2\main.cpp
+	<iostream>
+	<stdlib.h>
+	<string.h>
+
