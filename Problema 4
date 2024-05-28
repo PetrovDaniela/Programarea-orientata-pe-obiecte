@@ -1,0 +1,28 @@
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+class Film {
+private:
+std::string nume;
+std::string actor_principal;
+std::string actor_secundar;
+public:
+Film(const std::string&amp; nume, const std::string&amp; actorPrincipal, const std::string&amp; actorSecundar) {
+this-&gt;nume = nume;
+this-&gt;actor_principal = actorPrincipal;
+this-&gt;actor_secundar = actorSecundar;
+}
+~Film() {
+}
+void afiseazaFilm() {
+std::cout &lt;&lt; &quot;Nume: &quot; &lt;&lt; nume &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Actor Principal: &quot; &lt;&lt; actor_principal &lt;&lt; std::endl;
+std::cout &lt;&lt; &quot;Actor Secundar: &quot; &lt;&lt; actor_secundar &lt;&lt; std::endl;
+}
+};
+
+int main() {
+Film film1(&quot;Nume Film&quot;, &quot;Actor Principal 1&quot;, &quot;Actor Secundar 1&quot;);
+film1.afiseazaFilm();
+return 0;
+}
