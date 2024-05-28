@@ -1,0 +1,56 @@
+#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+
+class Punct {
+protected:
+double x, y, z;
+
+public:
+Punct(double xVal, double yVal, double zVal) : x(xVal), y(yVal), z(zVal) {}
+
+double getX() const { return x; }
+double getY() const { return y; }
+double getZ() const { return z; }
+};
+
+class Segment {
+private:
+Punct punct1, punct2;
+
+public:
+Segment(double x1, double y1, double z1, double x2, double y2, double z2)
+: punct1(x1, y1, z1), punct2(x2, y2, z2) {}
+
+double calculeazaLungimeaSegmentului() {
+double deltaX = punct2.getX() - punct1.getX();
+double deltaY = punct2.getY() - punct1.getY();
+double deltaZ = punct2.getZ() - punct1.getZ();
+
+return sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+}
+
+};
+
+class Triunghi : public Segment {
+private:
+Punct punct3;
+
+public:
+Triunghi(double x1, double y1, double z1, double x2, double y2, double z2, double x3, double y3, double z3)
+: Segment(x1, y1, z1, x2, y2, z2), punct3(x3, y3, z3) {}
+
+double calculeazaPerimetrulTriunghiului() {
+double lungimeSegment = calculeazaLungimeaSegmentului();
+double lungimeLatura = lungimeSegment + punct3.calculeazaLungimeaSegmentului();
+
+return lungimeSegment + lungimeLatura;
+}
+};
+
+int main() {
+Triunghi triunghi(0, 0, 0, 1, 0, 0, 0, 1, 0);
+double perimetru = triunghi.calculeazaPerimetrulTriunghiului();
+std::cout &lt;&lt; &quot;Perimetrul triunghiului: &quot; &lt;&lt; perimetru &lt;&lt; std::endl;
+
+return 0;
+}
