@@ -1,5 +1,5 @@
-#include &lt;iostream&gt;
-#include &lt;cstring&gt;
+#include <iostream>
+#include <string>
 
 const char* nume_luna(int luna) {
 const char* luni[] = {&quot;ianuarie&quot;, &quot;februarie&quot;, &quot;martie&quot;, &quot;aprilie&quot;, &quot;mai&quot;, &quot;iunie&quot;, &quot;iulie&quot;, &quot;august&quot;, &quot;septembrie&quot;,
