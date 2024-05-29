@@ -1,4 +1,4 @@
-#include <iostream&gt>
+#include <iostream>
 
 class Data_de_nastere {
 public:
